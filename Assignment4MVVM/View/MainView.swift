@@ -21,7 +21,7 @@ struct MainView: View {
                         PeopleCell(person: person)
                     }
                 }
-                .padding()
+                .padding(.vertical, 6)
             }.task {
                 await viewModel.getInfo()
             }

@@ -15,7 +15,7 @@ struct PeopleCell: View {
             PersonDetailScreen(person: person)
         } label: {
             
-            HStack(alignment: .center) {
+            HStack(alignment: .top) {
                 AsyncImage(url: URL(string: person.avatar)) { image in
                     image
                         .resizable()
