@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol Network {
-    func getInfo(urlString: String) async throws -> [People]
+    func getInfo<T: Decodable>(urlString: String, modelType: T.Type) async throws -> T
 }
 struct NetworkManager {
     let urlSession: URLSession
@@ -20,7 +20,7 @@ struct NetworkManager {
 }
 
 extension NetworkManager: Network {
-    func getInfo(urlString: String) async throws -> [People] {
+    func getInfo<T: Decodable>(urlString: String, modelType: T.Type) async throws -> T {
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidUrl
         }
@@ -34,7 +34,7 @@ extension NetworkManager: Network {
             }
             
             do {
-                let decodedData = try JSONDecoder().decode([People].self, from: data)
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
                 return decodedData
             } catch {
                 throw NetworkError.parsingError
@@ -43,6 +43,4 @@ extension NetworkManager: Network {
             throw error
         }
     }
-    
-    
 }

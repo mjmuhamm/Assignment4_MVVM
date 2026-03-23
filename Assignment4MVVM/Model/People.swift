@@ -6,7 +6,7 @@
 //
 
 
-struct People : Decodable {
+struct People : Decodable, Identifiable {
     let createdAt : String
     let firstName : String
     let avatar : String
@@ -17,10 +17,4 @@ struct People : Decodable {
     let id: String
 }
 
-extension People: Identifiable {
-    var identifiable: String {
-        return id
-    }
-    
-    
-}
+
