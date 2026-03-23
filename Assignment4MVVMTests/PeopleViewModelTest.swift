@@ -38,12 +38,12 @@ final class PeopleViewModelTest: XCTestCase {
 
     func testGetPeopleList_WhenExpectingCorrectResults() async throws {
         
-        
         //when
         fakeNetorkManager.testPath = "PeopleTest"
         await viewModel.getInfo()
         
         //Tests if data produces the expected elements and apiError is nil
+
         //then
         XCTAssertNotNil(viewModel)
         let data = viewModel.data
@@ -52,6 +52,7 @@ final class PeopleViewModelTest: XCTestCase {
         XCTAssertNil(apiError)
         
         //Tests if data elements are non-nil
+
         let person = data[0]
         XCTAssertEqual(person.firstName, "Maggie")
         XCTAssertEqual(person.avatar, "https://randomuser.me/api/portraits/women/21.jpg")
@@ -61,6 +62,12 @@ final class PeopleViewModelTest: XCTestCase {
     func testGetPeopleList_WhenExpectingError_PeopleListAsEmpty() async throws {
         
         //Tests if apiError is Non-null and data properly produces 0 elements
+        
+        
+    }
+    
+    func testGetPeopleList_WhenExpectingError_DigimonListAsEmpty() async throws {
+        
         //when
         fakeNetorkManager.testPath = "PeopleTestEmpty"
         await viewModel.getInfo()
