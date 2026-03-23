@@ -24,7 +24,6 @@ final class PeopleListTest: XCTestCase {
     }
     
     func testPersonListScreenTitle() {
-<<<<<<< HEAD
         //Tests if List exists
         let list = app.descendants(matching: .any)["people_list"]
         XCTAssertTrue(list.waitForExistence(timeout: 5))
@@ -36,13 +35,7 @@ final class PeopleListTest: XCTestCase {
         //Tests if title of List exists
         let text = app.staticTexts["person_list_title"]
         XCTAssertTrue(text.waitForExistence(timeout: 5))
-=======
-        let list = app.tables["person_list"]
-//        XCTAssertTrue(list.waitForExistence(timeout: 2))
-        let text = app.staticTexts["person_list_title"]
         
-        XCTAssertTrue(text.waitForExistence(timeout: 8))
->>>>>>> 93cb6f7 (additions)
     }
 
     override func tearDownWithError() throws {
